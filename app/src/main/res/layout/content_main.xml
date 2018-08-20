@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:showIn="@layout/activity_main">
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:completionHint="Pokemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hpTextView"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="HP"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+
+    <TextView
+        android:id="@+id/atkTextView"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Attack"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/hpTextView" />
+
+    <TextView
+        android:id="@+id/defTextView"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Defense"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/atkTextView" />
+
+    <TextView
+        android:id="@+id/speedTextView"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Speed"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/defTextView" />
+
+    <TextView
+        android:id="@+id/specialTextView"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Special"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/speedTextView" />
+
+    <EditText
+        android:id="@+id/hpText"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/hpTextView"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+
+    <EditText
+        android:id="@+id/atkText"
+        android:layout_width="98dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/atkTextView"
+        app:layout_constraintTop_toBottomOf="@+id/hpText" />
+
+    <EditText
+        android:id="@+id/defText"
+        android:layout_width="98dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/defTextView"
+        app:layout_constraintTop_toBottomOf="@+id/atkText" />
+
+    <EditText
+        android:id="@+id/speedText"
+        android:layout_width="98dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/speedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/defText" />
+
+    <EditText
+        android:id="@+id/specialText"
+        android:layout_width="98dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/specialTextView"
+        app:layout_constraintTop_toBottomOf="@+id/speedText" />
+
+    <TextView
+        android:id="@+id/hpResult"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/hpText"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+
+    <TextView
+        android:id="@+id/atkResult"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/atkText"
+        app:layout_constraintTop_toBottomOf="@+id/hpResult" />
+
+    <TextView
+        android:id="@+id/defResult"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/defText"
+        app:layout_constraintTop_toBottomOf="@+id/atkResult" />
+
+    <TextView
+        android:id="@+id/speedResult"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/speedText"
+        app:layout_constraintTop_toBottomOf="@+id/defResult" />
+
+    <TextView
+        android:id="@+id/specialResult"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/specialText"
+        app:layout_constraintTop_toBottomOf="@+id/speedResult" />
+
+    <Button
+        android:id="@+id/calcButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Calc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specialTextView" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="8dp" />
+
+    <EditText
+        android:id="@+id/levelText"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="1-100"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/autoCompleteTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
