@@ -1,13 +1,17 @@
 package pl.jakubcabaj.rbydvchecker;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Range;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -22,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import pl.jakubcabaj.rbydvchecker.calc.Calc;
 import pl.jakubcabaj.rbydvchecker.importer.PokemonImporter;
@@ -49,29 +54,41 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
         Button clickButton = findViewById(R.id.calcButton);
-        clickButton.setOnClickListener((view) -> {
-            //get Selected Pokemon
-            String pokemonName = ((AutoCompleteTextView) findViewById(R.id.autoCompleteTextView)).getText().toString();
-            if (!pokemonMap.containsKey(pokemonName)) {
-                return;
+        //set recalc on button click
+        clickButton.setOnClickListener(this::recalculate);
+        //or on blur on any editText
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewGroup viewGroup =  (ViewGroup) inflater.inflate(R.layout.content_main, null);
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View view = viewGroup.getChildAt(i);
+            if (view instanceof EditText) {
+                view.setOnFocusChangeListener((v, hasFocus) -> {if (!hasFocus) recalculate(v);});
             }
-            //get Level
-            int level;
-            String pokemonLevel = ((EditText) findViewById(R.id.levelText)).getText().toString();
-            try {
-                level = Integer.parseInt(pokemonLevel);
-            } catch (Exception e) {
-                level = 0;
-            }
-            if (level > 100 || level < 1) {
-                return;
-            }
-            Calc.calculateHP(pokemonMap.get(pokemonName), level, findViewById(R.id.hpText), findViewById(R.id.hpResult));
-            Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.attack), findViewById(R.id.atkText), findViewById(R.id.atkResult));
-            Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.defense), findViewById(R.id.defText), findViewById(R.id.defResult));
-            Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.speed), findViewById(R.id.speedText), findViewById(R.id.speedResult));
-            Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.special), findViewById(R.id.specialText), findViewById(R.id.specialResult));
-        });
+        }
+    }
+
+    private void recalculate(View view) {
+        //get Selected Pokemon
+        String pokemonName = ((AutoCompleteTextView) findViewById(R.id.autoCompleteTextView)).getText().toString();
+        if (!pokemonMap.containsKey(pokemonName)) {
+            return;
+        }
+        //get Level
+        int level;
+        String pokemonLevel = ((EditText) findViewById(R.id.levelText)).getText().toString();
+        try {
+            level = Integer.parseInt(pokemonLevel);
+        } catch (Exception e) {
+            level = 0;
+        }
+        if (level > 100 || level < 1) {
+            return;
+        }
+        Calc.calculateHP(pokemonMap.get(pokemonName), level, findViewById(R.id.hpText), findViewById(R.id.hpResult));
+        Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.attack), findViewById(R.id.atkText), findViewById(R.id.atkResult));
+        Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.defense), findViewById(R.id.defText), findViewById(R.id.defResult));
+        Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.speed), findViewById(R.id.speedText), findViewById(R.id.speedResult));
+        Calc.calculate(pokemonMap.get(pokemonName), level, (p -> p.special), findViewById(R.id.specialText), findViewById(R.id.specialResult));
     }
 
     private void preparePokemonList() {
