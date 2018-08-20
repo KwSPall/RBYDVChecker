@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
         preparePokemonList();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -62,7 +62,10 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             View view = viewGroup.getChildAt(i);
             if (view instanceof EditText) {
-                view.setOnFocusChangeListener((v, hasFocus) -> {if (!hasFocus) recalculate(v);});
+                View.OnFocusChangeListener onFocusChangeListener = view.getOnFocusChangeListener();
+                view.setOnFocusChangeListener((v, hasFocus) -> {
+                    onFocusChangeListener.onFocusChange(v, hasFocus);
+                    if (!hasFocus) recalculate(v);});
             }
         }
     }

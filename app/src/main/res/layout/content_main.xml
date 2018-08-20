@@ -85,7 +85,6 @@
         android:hint="0"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/hpTextView"
         app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
@@ -100,7 +99,6 @@
         android:hint="0"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/atkTextView"
         app:layout_constraintTop_toBottomOf="@+id/hpText" />
@@ -115,7 +113,6 @@
         android:hint="0"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/defTextView"
         app:layout_constraintTop_toBottomOf="@+id/atkText" />
@@ -130,7 +127,6 @@
         android:hint="0"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/speedTextView"
         app:layout_constraintTop_toBottomOf="@+id/defText" />
@@ -145,7 +141,6 @@
         android:hint="0"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/specialTextView"
         app:layout_constraintTop_toBottomOf="@+id/speedText" />
